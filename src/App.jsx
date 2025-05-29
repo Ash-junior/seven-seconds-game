@@ -62,15 +62,15 @@ export default function SevenSecondChrono() {
   const [teams, setTeams] = useState(() => {
     const saved = localStorage.getItem('teams');
     if (!saved) return [
-      { name: "Équipe A", avatar: "/seven-seconds-game/avatars/a.png", score: 0 },
-      { name: "Équipe B", avatar: "/seven-seconds-game/avatars/b.png", score: 0 },
+      { name: "Équipe A", avatar: "avatars/a.png", score: 0 },
+      { name: "Équipe B", avatar: "avatars/b.png", score: 0 },
     ];
     
     // Restaurer les équipes avec leurs avatars par défaut si nécessaire
     const parsedTeams = JSON.parse(saved);
     return parsedTeams.map(team => ({
       ...team,
-      avatar: team.avatar || `/seven-seconds-game/avatars/${team.name.toLowerCase().replace(/\s+/g, '')}.png`
+      avatar: team.avatar || `avatars/${team.name.toLowerCase().replace(/\s+/g, '')}.png`
     }));
   });
   const [teamName, setTeamName] = useState("");
@@ -119,7 +119,7 @@ export default function SevenSecondChrono() {
     // Utiliser un avatar par défaut si aucun n'est fourni
     const avatarUrl = teamAvatar 
       ? URL.createObjectURL(teamAvatar)
-      : `/seven-seconds-game/avatars/${teamName.toLowerCase().replace(/\s+/g, '')}.png`;
+      : `avatars/${teamName.toLowerCase().replace(/\s+/g, '')}.png`;
     
     setTeams(prev => [...prev, { 
       name: teamName, 
@@ -287,7 +287,7 @@ export default function SevenSecondChrono() {
     setTeams(teams.map(t => ({ 
       ...t, 
       score: 0,
-      avatar: t.avatar || `/seven-seconds-game/avatars/${t.name.toLowerCase().replace(/\s+/g, '')}.png`
+      avatar: t.avatar || `avatars/${t.name.toLowerCase().replace(/\s+/g, '')}.png`
     })));
   };
 
@@ -640,7 +640,7 @@ export default function SevenSecondChrono() {
                       setTeams(teams.map(t => ({ 
                         ...t, 
                         score: 0,
-                        avatar: t.avatar || `/seven-seconds-game/avatars/${t.name.toLowerCase().replace(/\s+/g, '')}.png`
+                        avatar: t.avatar || `avatars/${t.name.toLowerCase().replace(/\s+/g, '')}.png`
                       })));
                       // Changer d'écran après la réinitialisation
                       setScreen("jeu");
