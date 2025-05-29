@@ -12,7 +12,7 @@ export default defineConfig({
       usePolling: true,
     },
   },
-  base: '/seven-second-game/',
+  base: '/seven-seconds-game/',
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
